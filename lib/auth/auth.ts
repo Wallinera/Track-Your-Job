@@ -3,15 +3,14 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { initializeUserBoard } from "../init-user-board";
-import connectDB from "../db";
+import { MongoClient } from "mongodb";
 
-const mongooseInstance = await connectDB();
-const client = mongooseInstance.connection.getClient();
-const db = client.db();
+const authClient = new MongoClient(process.env.MONGODB_URI!);
+const authDb = authClient.db();
 
 export const auth = betterAuth({
-  database: mongodbAdapter(db, {
-    client,
+  database: mongodbAdapter(authDb, {
+    client: authClient,
   }),
   session: {
     cookieCache: {
