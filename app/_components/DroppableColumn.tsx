@@ -45,6 +45,7 @@ export default function DroppableColumn({
   sortedColumns,
 }: ColumnProps) {
   const [isEditing, setIsEditing] = useState(false);
+  const [isJobDialogOpen, setIsJobDialogOpen] = useState(false);
 
   const { setNodeRef, isOver } = useDroppable({
     id: column._id,
@@ -68,6 +69,8 @@ export default function DroppableColumn({
       column,
     },
   });
+
+  const listenersObject = isEditing || isJobDialogOpen ? {} : listeners;
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -104,7 +107,7 @@ export default function DroppableColumn({
       <Card
         className="min-w-75 [&::-webkit-scrollbar]:hidden h-215 shrink-0 shadow-md p-0 overflow-y-auto cursor-pointer"
         {...attributes}
-        {...listeners}
+        {...listenersObject}
       >
         <CardHeader
           style={{
@@ -168,7 +171,11 @@ export default function DroppableColumn({
             ))}
           </SortableContext>
 
-          <CreateJobApplicationDialog boardId={boardId} columnId={column._id} />
+          <CreateJobApplicationDialog
+            onOpenChange={setIsJobDialogOpen}
+            boardId={boardId}
+            columnId={column._id}
+          />
 
           <EditColumnDialog
             column={column}

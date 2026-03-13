@@ -15,7 +15,7 @@ import { Label } from "./label";
 import { Input } from "./input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Textarea } from "./textarea";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import {
   JobApplicationData,
   JobApplicationFormInputs,
@@ -27,11 +27,13 @@ import SpinnerMini from "./SpinnerMini";
 interface CreateJobApplicationDialogProps {
   columnId: string;
   boardId: string;
+  onOpenChange: Dispatch<SetStateAction<boolean>>;
 }
 
 function CreateJobApplicationDialog({
   columnId,
   boardId,
+  onOpenChange,
 }: CreateJobApplicationDialogProps) {
   const {
     register,
@@ -42,9 +44,10 @@ function CreateJobApplicationDialog({
 
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, []);
+  function handleOpenChange(open: boolean) {
+    setIsOpen(open);
+    onOpenChange(open); // notify parent
+  }
 
   const onSubmit: SubmitHandler<JobApplicationFormInputs> = async (
     formData,
@@ -68,17 +71,17 @@ function CreateJobApplicationDialog({
       if (!result.error) {
         toast.success("Successfully created new job application!");
       }
-      setIsOpen((s) => !s);
     } catch (error) {
       toast.error("Could not create job application!");
       console.error(error);
     } finally {
+      handleOpenChange(false);
       reset();
     }
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button variant={"outline"}>
           <Plus className="mr-2 h-4 w-4" />
@@ -194,7 +197,7 @@ function CreateJobApplicationDialog({
             <Button
               disabled={isSubmitting}
               onClick={() => {
-                setIsOpen(false);
+                handleOpenChange(false);
                 reset();
               }}
               variant={"outline"}
