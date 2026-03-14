@@ -105,7 +105,7 @@ function CreateColumnDialog({
               <div className="flex items-center justify-between">
                 <HexColorPicker color={color} onChange={setColor} />
 
-                <div className="h-50 w-1/2  shadow-xl rounded-lg">
+                <div className="bg-white dark:bg-card h-50 w-1/2  shadow-xl rounded-lg">
                   <div
                     style={{
                       backgroundColor: color,

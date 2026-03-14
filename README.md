@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Track Your Job
 
-## Getting Started
+**A Kanban-style job application tracker to organize and manage your job search in one place.**
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. [About the Project](#about-the-project)
+2. [Features](#features)
+3. [Screenshots](#screenshots)
+4. [Usage](#usage)
+5. [License](#license)
+6. [Contact](#contact)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## About the Project
 
-## Learn More
+Track Your Job is a job search management application that helps you stay on top of your applications at every stage of the hiring process. Built with Next.js and MongoDB, it features a drag-and-drop Kanban board interface where you can create custom columns, track job applications, and manage your entire job search from one centralized dashboard.
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Kanban Board**: Visualize your job search with a drag-and-drop board organized by application stage.
+- **Custom Columns**: Create, edit, and reorder columns to match your personal workflow.
+- **Job Application Tracking**: Log detailed information for each application including company, position, salary, location, tags, and notes.
+- **Multiple Boards**: Organize different job searches or roles across separate boards.
+- **Secure Authentication**: Sign in safely to access your personalized dashboard.
+- **Responsive Design**: Optimized for a smooth experience across desktop, tablet, and mobile devices.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Screenshots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Home Page
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Home Page](./homepage.PNG)
+
+### Dashboard
+
+![Dashboard](./hero-image/hero1.png)
+
+### Kanban Board
+
+![Kanban Board](./hero-image/image-2-dark.PNG)
+
+### Add & Edit Job Application
+
+![Add Job Application](./hero-image/image-3-dark.PNG)
+
+### Add & Edit Column
+
+![Edit Column](./addColumn.PNG)
+
+---
+
+## Usage
+
+1. **Sign Up / Log In**: Create an account or log in to access your dashboard.
+2. **Add Columns**: Create columns to represent each stage of your hiring process (e.g. Wishlist, Applied, Interviewing, Offer).
+3. **Track Applications**: Add job applications to the relevant column with all the details you need.
+4. **Drag & Drop**: Move applications across columns and reorder columns as your search progresses.
+5. **Log Out**: Securely log out when you are done.
+
+---
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## Contact
+
+Emirhan Karagöz - [emirhan-karagoz1@hotmail.com](mailto:emirhan-karagoz1@hotmail.com)
+
+Project Link: [GitHub Repository](https://github.com/Wallinera/Track-Your-Job)
+
+Live Site URL: [track-your-job-gilt.vercel.app](https://track-your-job-gilt.vercel.app)
